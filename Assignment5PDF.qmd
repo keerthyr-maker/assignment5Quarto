@@ -1,0 +1,58 @@
+---
+title: "Assignment 5 PDF"
+author: "Keerthy Rangan"
+date: "2024-10-09"
+format: pdf
+---
+
+
+``` {python}
+
+import pandas as pd
+import matplotlib.pyplot as plt
+df = pd.read_csv("/Users/keerthyrangan/Downloads/wdi.csv")
+
+
+print(df)
+
+first_countries = df["country"].head(10)
+first_gdp = df["gdp_per_capita"].head(10)
+plt.bar(first_countries,first_gdp)
+plt.title("Bar chart looking at GDP per capita for each country")
+plt.xlabel("Country")
+plt.ylabel("GDP per capita")
+plt.show()
+print("Shows the trend of GDP per capita in different countries")
+```
+
+Overall, the GDP per capita has a large range, but for the first 10 countries, it ranges from 1000 to 400000. 
+
+``` {python}
+
+
+plt.scatter(x=df["adult_literacy_rate"],y= df["gdp_growth_rate"])
+plt.title("Scatter Plot comparing the Adult literacy rate with the GDP Growth rate GDP per capita for each country")
+plt.xlabel("Adult Literacy Rate")
+plt.ylabel("GDP Growth Rate")
+plt.show()
+print("Shows the correlation between adult literacy and GDP growth")
+
+```
+
+Overall, the adult literacy rate and gdp growth rate show almost no correlation, as shown by the lack of slope in the line. 
+
+
+``` {python}
+
+table_analysis = {
+    "Max for Indicators": [max(df["gdp_per_capita"]), max(df["adult_literacy_rate"]), max(df["gdp_growth_rate"])],
+    "Min for Indicators": [min(df["gdp_per_capita"]), min(df["adult_literacy_rate"]), min(df["gdp_growth_rate"])],
+    "Average for Indicators": [df["gdp_per_capita"].mean(), df["adult_literacy_rate"].mean(), df["gdp_growth_rate"].mean()]
+}
+
+indicators = ["gdp_per_capita", "adult_literacy_rate", "gdp_growth_rate"]
+df_analysis = pd.DataFrame(table_analysis, index=indicators)
+print(df_analysis)
+
+print("Shows the minimum, maximum, and average of the three indicators")
+```

@@ -1,0 +1,80 @@
+---
+title: "Assignment 5 Presentation"
+author: "Keerthy Rangan"
+date: "2024-10-09"
+format: revealjs
+
+revealjs:
+  theme: moon
+  transition: concave
+---
+
+Title: Data Analysis of WDI Dataset
+
+---
+
+First Analysis: GDP Trend in Different Countries
+``` {python}
+
+import pandas as pd
+import matplotlib.pyplot as plt
+df = pd.read_csv("/Users/keerthyrangan/Downloads/wdi.csv")
+
+first_countries = df["country"].head(10)
+first_gdp = df["gdp_per_capita"].head(10)
+plt.bar(first_countries,first_gdp)
+plt.title("Bar chart looking at GDP per capita for each country")
+plt.xlabel("Country")
+plt.ylabel("GDP per capita")
+plt.show()
+print("Shows the trend of GDP per capita in different countries")
+```
+
+Overall, the GDP per capita has a large range, but for the first 10 countries, it ranges from 1000 to 400000. 
+
+---
+
+Second Analysis: Correlation between Adult Literacy and GDP Growth
+
+``` {python}
+
+
+plt.scatter(x=df["adult_literacy_rate"],y= df["gdp_growth_rate"])
+plt.title("Scatter Plot comparing the Adult literacy rate with the GDP Growth rate GDP per capita for each country")
+plt.xlabel("Adult Literacy Rate")
+plt.ylabel("GDP Growth Rate")
+plt.show()
+print("Shows the correlation between adult literacy and GDP growth")
+
+```
+
+Overall, the adult literacy rate and gdp growth rate show almost no correlation, as shown by the lack of slope in the line. 
+
+--- 
+
+Third Analysis: Statistical Table Analysis
+
+``` {python}
+
+table_analysis = {
+    
+    "Max for Indicators": [max(df["gdp_per_capita"]), max(df["adult_literacy_rate"]), max(df["gdp_growth_rate"])],
+    "Min for Indicators": [min(df["gdp_per_capita"]), min(df["adult_literacy_rate"]), min(df["gdp_growth_rate"])],
+    "Average for Indicators": [df["gdp_per_capita"].mean(), df["adult_literacy_rate"].mean(), df["gdp_growth_rate"].mean()]
+}
+
+indicators = ["gdp_per_capita", "adult_literacy_rate", "gdp_growth_rate"]
+df_analysis = pd.DataFrame(table_analysis, index=indicators)
+print(df_analysis)
+
+print("Shows the minimum, maximum, and average of the three indicators")
+
+```
+
+---
+
+Conclusion:
+
+In our analysis, we were able to see that the maximum value of GDP Per capita was about 240,000, the max GDP growth rate was about 63%, and the average adult literacy rate is about 79.6%. These are good numbers, but there could always be outliers of countries with really bad literacy rates and GDP. 
+
+In terms of the trends that we see in country data, we learn that there is no correlation between the GDP growth rate and adult literacy rate. We also see a wide range of GDP per capitas in the different countries in the dataset. 

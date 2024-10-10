@@ -1,0 +1,17 @@
+---
+title: "Bibliography"
+bibliography: references.bib
+---
+
+@article{roser2023,
+  author = {Roser, M and others},
+  title = {GDP per capita},
+  journal = {Our World in Data},
+  year = {2023}
+}
+
+@article{OurWorldinData2023,
+  title = {Literacy rate vs. GDP per capita, 2023},
+  journal = {Our World in Data},
+  year = {2023}
+}
