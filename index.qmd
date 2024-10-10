@@ -1,0 +1,12 @@
+---
+title: "Quarto Assignment"
+format: html
+---
+
+This is the homepage for Assignment 5.
+
+Sections:
+- Assignment 5 HTML File: (Assignment5HTML.qmd)
+- Assignment 5 PDF File: (Assignment5PDF.qmd)
+- Assignment 5 Presentation: (Assignment5Pres.qmd)
+- Assignment 5 references: (references.qmd)
